@@ -1,0 +1,5 @@
+package com.coke.jpa.helloworld;
+
+public class Customer {
+
+}
