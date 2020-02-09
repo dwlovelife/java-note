@@ -8,6 +8,7 @@ public class SingletonTest06 {
 		System.out.println(singleton01 == singleton02);
 	}
 }
+//内部类实现单例模式，线程安全，懒加载
 class Singleton{
 	
 	//构造器私有化

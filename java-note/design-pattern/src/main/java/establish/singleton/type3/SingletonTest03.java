@@ -8,7 +8,7 @@ public class SingletonTest03 {
 		System.out.println(instance01 == instance02);
 	}
 }
-//线程不安全懒汉式
+//懒汉式-线程不安全
 class Singleton {
 	
 	private static Singleton instance;
