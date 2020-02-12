@@ -1,0 +1,43 @@
+package priciple.liskov;
+
+/**
+ *  里氏替换原则基本介绍
+ *  核心点就是： 在使用继承时,遵循里氏替换原则,在子类中尽量不要重写父类的方法
+ *  里氏替换原则告诉我们，继承实际上让两个类耦合性增强了,在适当的情况下,可以通过聚合,组合,依赖来解决问题
+ */
+public class Liskov {
+    public static void main(String[] args) {
+        A a = new A();
+        System.out.println("11-3=" + a.func1(11,3));
+        System.out.println("1-8=" + a.func1(1,8));
+        System.out.println("-----------------------");
+        B b = new B();
+        System.out.println("11-3=" + b.func1(11,3));
+        System.out.println("1-8=" + b.func1(1,8));
+        System.out.println("11+3+9=" + b.func2(11,3));
+    }
+}
+
+//A类
+class A {
+    //返回两个数的差
+    public int func1(int num1, int num2) {
+        return num1 - num2;
+    }
+}
+
+//B类继承了A
+//增加了一个新功能,完成两个数相加，然后和9求和 -> 这里B 其实继承A 后，硬是修改了继承方法，这显得继承没有意义
+class B extends A {
+
+    //如果B类需要使用A类的方法，使用组合关系
+    //这里重写了A类的方法,可能是无意识
+    public int func1(int a,int b){
+        return a + b;
+    }
+
+    public int func2(int a,int b){
+        return func1(a,b) + 9;
+    }
+
+}
