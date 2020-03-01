@@ -80,7 +80,7 @@ class SchoolManager {
 		return list;
 	}
 
-	// 打印所有的员工信息
+	// 打印所有的员工 信息
 	void printAllEmployee(CollegeManager sub) {
 		List<CollegeEmployee> list1 = sub.getAllEmployee();
 		System.out.println("-------分公司员工----------");
