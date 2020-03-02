@@ -23,13 +23,9 @@ public class Liskov {
     }
 }
 
-//创建一个更加基础的类
-class Base {
-    //把更加基础的方法和成员写到Base类中
-}
 
 //A类
-class A extends Base {
+class A {
     //返回两个数的差
     public int func1(int num1, int num2) {
         return num1 - num2;
@@ -38,7 +34,7 @@ class A extends Base {
 
 //B类继承了A
 //增加了一个新功能,完成两个数相加，然后和9求和 -> 这里B 其实继承A 后，硬是修改了继承方法，这显得继承没有意义
-class B extends Base {
+class B {
     //如果B需要使用A类的方法,使用组合关系
     private A a = new A();
 
