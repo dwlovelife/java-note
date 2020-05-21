@@ -16,7 +16,7 @@ public class LeetCode1011 {
             min = Math.max(weight, min);
         }
         while (min < max) {
-            int mid = (max + min) / 2;
+            int mid = (max + min) / 2; //2,3,4 2+4/2=3 所以不可能中间会漏掉某些数
             if (isTransfer(weights, mid, D)) {
                 max = mid; //符合可以把右边全砍了
             } else {
