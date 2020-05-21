@@ -1,5 +1,10 @@
-package datastructures.linkedlist;
+package datastructures.linkedlist.code;
 
+/**
+ * 单向链表的demo
+ * @author Administrator
+ *
+ */
 public class SingleLinkedListDemo {
 	public static void main(String[] args) {
 		SingleLinkedList linkedList = new SingleLinkedList();
