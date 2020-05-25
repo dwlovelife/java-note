@@ -2,156 +2,130 @@ package datastructures.linkedlist.code;
 
 /**
  * 单向链表的demo
+ * 
  * @author Administrator
  *
  */
 public class SingleLinkedListDemo {
 	public static void main(String[] args) {
-		SingleLinkedList linkedList = new SingleLinkedList();
-		Node nodeA = new Node(1,"宋江","及时雨");
-		Node nodeB = new Node(3,"吴用","智多星");
-		Node nodeC = new Node(2,"林冲","豹子头");
-		linkedList.list();
-		linkedList.addByOrder(nodeA);
-		linkedList.addByOrder(nodeB);
-		linkedList.addByOrder(nodeC);
-		linkedList.list();
-		linkedList.remove(nodeA);
-		linkedList.list();
-		linkedList.update(new Node(2,"时迁","鼓上蚤"));
-		linkedList.list();
-		linkedList.remove(nodeB);
-		linkedList.remove(nodeC);
-		linkedList.list();
-
-
+		SingleLinkedList<Integer> s = new SingleLinkedList<>();
+		s.add(1);
+		s.add(2);
+		s.remove(2);
+		s.printAll();
 	}
 }
 
-class SingleLinkedList {
-	
-	//定义一个头节点,不存放任何数据
-	private Node head = new Node(0);
-	
+class SingleLinkedList<E> {
+
+	private final Node<E> head = new Node<>(null);
+	private int size = 0;
+
 	/**
-	 * 添加一个节点
-	 * @param node
+	 * 添加一个元素
 	 */
-	public void add(Node node){
-		Node temp = head;
-		while(temp.next != null){
+	public boolean add(E e) {
+		Node<E> temp = head;
+		while (temp.next != null) {
 			temp = temp.next;
 		}
-		temp.next = node;
+		temp.next = new Node<>(e);
+		size++;
+		return true;
 	}
-	
-	/**
-	 * 按序添加一个节点
-	 * @param node
-	 */
-	public void addByOrder(Node node){
-		Node temp = head;
-		while(temp.next != null){
-			if(temp.next.id > node.id){
-				node.next = temp.next;
-				break;
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public E get(int index) {
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		Node<E> temp = head.next;
+		int counter = 0;
+		while (temp != null) {
+			if (index == counter++) {
+				return temp.item;
 			}
 			temp = temp.next;
 		}
-		temp.next = node;
+		return null;
 	}
-	
-	/**
-	 * 修改一个节点
-	 * @param node
-	 * @return boolean
-	 */
-	public boolean update(Node node){
-		Node findedNode = findNode(node);
-		//是否被修改
-		boolean flag = false;
-		if(findedNode != null){
-			findedNode.name = node.name;
-			findedNode.nickName = node.nickName;
-			flag = true;
-		}
-			
-		return flag;
-	}
-	
-	/**
-	 * 是否移除一个节点
-	 * @param node
-	 * @return boolean
-	 */
-	public boolean remove(Node node){
-		Node temp = head;
-		boolean flag = false;
-		while(temp.next != null){
-			if(temp.next.id == node.id){
+	//todo 不太对
+	public boolean remove(E e) {
+		Node<E> temp = head.next;
+		boolean isRemove = false;
+		while (temp != null) {
+			boolean isAllEqual = e != null && e.equals(temp.next.item);
+			boolean isAllNull = e == null && temp.next.item == null;
+			if (isAllEqual || isAllNull) {
 				temp.next = temp.next.next;
-				flag = true;
-				break;
+				isRemove = true;
 			}
 			temp = temp.next;
 		}
-		return flag;
+		return isRemove;
 	}
-	
-	/**
-	 * 遍历所有节点
-	 */
-	public void list(){
-		System.out.println("--------START--------");
+
+	public void printAll() {
 		Node temp = head.next;
-		while(temp != null){
-			System.out.println(temp);
+		System.out.println("---------start-----------");
+		while (temp != null) {
+			System.out.println(temp.item);
 			temp = temp.next;
 		}
-		System.out.println("--------END----------");
+		System.out.println("---------end-----------");
 	}
-	
+
 	/**
-	 * 查询当前节点
-	 * @param node
-	 * @return node
+	 * 内部类节点
 	 */
-	public Node findNode(Node node){
-		Node temp = head;
-		while(temp.next != null){
-			if(temp.id == node.id){
-				break;
-			}
-			temp = temp.next;
+	private static class Node<E> {
+		E item;
+		Node next;
+
+		public Node(E item) {
+			super();
+			this.item = item;
 		}
-		return temp;
-	}
-	
-}
 
-class Node {
-	
-	int id;
-	String name;
-	String nickName;
-	Node next;
-	
-	public Node(int id, String name, String nickName) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.nickName = nickName;
+		@Override
+		public String toString() {
+			return "Node [item=" + item + "]";
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((item == null) ? 0 : item.hashCode());
+			result = prime * result + ((next == null) ? 0 : next.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Node other = (Node) obj;
+			if (item == null) {
+				if (other.item != null)
+					return false;
+			} else if (!item.equals(other.item))
+				return false;
+			if (next == null) {
+				if (other.next != null)
+					return false;
+			} else if (!next.equals(other.next))
+				return false;
+			return true;
+		}
+
 	}
 
-	public Node(int id) {
-		super();
-		this.id = id;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Node [id=" + id + ", name=" + name + ", nickName=" + nickName + "]";
-	}
-	
 }
