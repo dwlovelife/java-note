@@ -4,11 +4,10 @@ import java.util.Stack;
 
 /**
  * 逆波兰表达式
- * @author Administrator
- *
  */
 public class PolandNotation {
 	public static void main(String[] args) {
+		
 		//先定义一个逆波兰表达式
 		//(3+4)x5-6 => 3 4 + 5 x 6 -
 		String suffixExpression = "3 4 + 5 * 6 -";
