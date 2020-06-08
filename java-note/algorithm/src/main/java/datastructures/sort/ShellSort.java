@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 希尔排序是把记录按下标的一定增量分组,对每组使用直接插入排序算法排序,
  * 随着增量逐渐减少,每组包含的关键词越来越多,当增量减至1时,整个文件
  * 恰被分成一组,算法便终止.
- *
+ * <p>
  * 移位法由于 插入法 没有那么多的交换操作 所以移位法的希尔排序 速度远快于交换法
  */
 public class ShellSort {
@@ -44,11 +44,11 @@ public class ShellSort {
      * 希尔排序移位法
      */
     private static void shellSortByMove(int[] arr) {
-        for (int gap = arr.length; gap > 0; gap /= 2){
-            for(int i = gap; i < arr.length;i++){
+        for (int gap = arr.length; gap > 0; gap /= 2) {
+            for (int i = gap; i < arr.length; i++) {
                 int j = i;
                 int temp = arr[j];
-                while(j - gap >= 0 && temp < arr[j - gap]){
+                while (j - gap >= 0 && temp < arr[j - gap]) {
                     arr[j] = arr[j - gap];
                     j -= gap;
                 }
