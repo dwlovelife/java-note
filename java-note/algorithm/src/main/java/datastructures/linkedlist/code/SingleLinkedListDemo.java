@@ -2,17 +2,19 @@ package datastructures.linkedlist.code;
 
 /**
  * 单向链表的demo
- * 
- * @author Administrator
- *
  */
 public class SingleLinkedListDemo {
 	public static void main(String[] args) {
 		SingleLinkedList<Integer> s = new SingleLinkedList<>();
 		s.add(1);
 		s.add(2);
-		s.remove(2);
+		s.remove(1);
+		System.out.println(s.get(0));
+		s.set(0,9);
+		System.out.println(s.get(0));
 		s.printAll();
+		System.out.println(s.get(1));
+
 	}
 }
 
@@ -24,20 +26,22 @@ class SingleLinkedList<E> {
 	/**
 	 * 添加一个元素
 	 */
-	public boolean add(E e) {
+	public void add(E e) {
 		Node<E> temp = head;
 		while (temp.next != null) {
 			temp = temp.next;
 		}
 		temp.next = new Node<>(e);
 		size++;
-		return true;
 	}
 
 	public boolean isEmpty() {
 		return size == 0;
 	}
 
+	/**
+	 * 获取某个index上的元素
+	 */
 	public E get(int index) {
 		if (index < 0 || index >= size) {
 			throw new IndexOutOfBoundsException();
@@ -46,28 +50,47 @@ class SingleLinkedList<E> {
 		int counter = 0;
 		while (temp != null) {
 			if (index == counter++) {
-				return temp.item;
+				break;
 			}
 			temp = temp.next;
 		}
-		return null;
-	}
-	//todo 不太对
-	public boolean remove(E e) {
-		Node<E> temp = head.next;
-		boolean isRemove = false;
-		while (temp != null) {
-			boolean isAllEqual = e != null && e.equals(temp.next.item);
-			boolean isAllNull = e == null && temp.next.item == null;
-			if (isAllEqual || isAllNull) {
-				temp.next = temp.next.next;
-				isRemove = true;
-			}
-			temp = temp.next;
-		}
-		return isRemove;
+		return temp == null ? null: temp.item;
 	}
 
+	/**
+	 * 移除一个元素
+	 */
+	public boolean remove(E e) {
+		Node<E> temp = head;
+		while(temp.next != null){
+			if(temp.next.item.equals(e)){
+				temp.next = temp.next.next;
+				size--;
+				return true;
+			}
+			temp = temp.next;
+		}
+		return false;
+	}
+
+	public boolean set(int index,E e){
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		Node<E> temp = head.next;
+		int counter = 0;
+		while (temp != null) {
+			if (index == counter++) {
+				temp.item = e;
+				return true;
+			}
+			temp = temp.next;
+		}
+		return false;
+	}
+	/**
+	 * 打印所有元素
+	 */
 	public void printAll() {
 		Node temp = head.next;
 		System.out.println("---------start-----------");
