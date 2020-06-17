@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class InsertSort {
 	public static void main(String[] args) {
-		int count = 80000;
+		int count = 8;
 		int[] arr = new int[count];
 		for(int i = 0; i < count;i++){
 			arr[i] = (int)(Math.random() * count);
@@ -21,7 +21,7 @@ public class InsertSort {
 		insertSort(arr);
 		String end = sdf.format(new Date());
 		System.out.println("开始时间:" + end);
-		//System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(arr));
 	}
 
 	public static void insertSort(int[] elements) {
