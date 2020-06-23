@@ -205,7 +205,7 @@ class Node<E> {
         //判断当前结点的左子节点是否为空,如果不为空,则递归后序查找
         Node<E> node = null;
         if(this.left != null){
-            node = this.left.infixSearch(e);
+            node = this.left.postSearch(e);
         }
         if(node != null){ //说明在左子数找到
             return node;
