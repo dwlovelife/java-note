@@ -41,6 +41,7 @@ public class HeapSort {
             if (k + 1 < length && arr[k + 1] > arr[k]) {
                 k++;
             }
+            //如果发生交换了 则看当前发生交换的节点 是否有子节点 如果有则看当前交换节点的左右子节点 是否比temp小 如果有再比较
             if (arr[k] > temp) {
                 arr[i] = arr[k];
                 i = k;
