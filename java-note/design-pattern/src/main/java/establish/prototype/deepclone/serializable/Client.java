@@ -1,4 +1,4 @@
-package establish.prototype.deepclone;
+package establish.prototype.deepclone.serializable;
 
 public class Client {
 	public static void main(String[] args) {
@@ -7,7 +7,7 @@ public class Client {
 		// 牡丹园
 		Garden peonyGarden = new Garden(1000, peony);
 		// 牡丹园的复制建造 但是花改成玫瑰 改名玫瑰园
-		Garden roseGarden = peonyGarden.clone();
+		Garden roseGarden = peonyGarden.deepClone();
 		// 深复制 面对引用类型的成员变量 也重新复制了一个对象
 		System.out.println(peonyGarden.getFlower() == roseGarden.getFlower());
 		// 改为种植玫瑰花

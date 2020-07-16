@@ -1,18 +1,21 @@
 package establish.prototype.improve;
 
-/**
- * 
- * 如果羊多了一个属性,不会受创建方式的局限
- */
+
 public class Client {
 	public static void main(String[] args) {
-		System.out.println("原型模式完成对象的创建");
-		Sheep sheep = new Sheep("tom", 1, "白色");
-		Sheep sheep1 = sheep.clone();
-		Sheep sheep2 = sheep.clone();
-		Sheep sheep3 = sheep.clone();
-		System.out.println("sheep1= + sheep");
-		System.out.println("sheep2= + sheep");
-		System.out.println("sheep3= + sheep");
+		// 牡丹花
+		Flower peony = new Flower("牡丹", "blue");
+		// 牡丹园
+		Garden peonyGarden = new Garden(1000, peony);
+		System.out.println("初始的牡丹园:" + peonyGarden);
+		// 牡丹园的复制建造 但是花改成玫瑰 改名玫瑰园
+		Garden roseGarden = peonyGarden.clone();
+		//浅复制只会复制引用地址，并没有重新复制一个对象
+		System.out.println(peonyGarden.getFlower() == roseGarden.getFlower());
+		// 改为种植玫瑰花
+		roseGarden.getFlower().setName("玫瑰");
+		roseGarden.getFlower().setColor("red");
+		System.out.println("玫瑰园：" + roseGarden);
+		System.out.println("牡丹园：" + peonyGarden);
 	}
 }
