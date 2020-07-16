@@ -10,7 +10,7 @@ public class Expresso extends Beverage{
     }
 
     @Override
-    public double getCost() {
+    public double cost() {
         return 19.9;
     }
 

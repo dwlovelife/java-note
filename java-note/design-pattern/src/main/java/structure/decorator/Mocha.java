@@ -16,7 +16,7 @@ public class Mocha extends Condiment {
     }
 
     @Override
-    public double getCost() {
-        return beverage.getCost() + 2.2;
+    public double cost() {
+        return beverage.cost() + 2.2;
     }
 }

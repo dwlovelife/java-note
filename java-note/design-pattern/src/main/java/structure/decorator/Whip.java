@@ -15,7 +15,7 @@ public class Whip extends Condiment {
     }
 
     @Override
-    public double getCost() {
-        return beverage.getCost() + 2.7;
+    public double cost() {
+        return beverage.cost() + 2.7;
     }
 }
