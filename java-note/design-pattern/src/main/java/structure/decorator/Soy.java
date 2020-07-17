@@ -1,5 +1,7 @@
 package structure.decorator;
 
+import java.math.BigDecimal;
+
 /**
  * 牛奶
  */
@@ -10,12 +12,12 @@ public class Soy extends Condiment {
     }
 
     @Override
-    public String getDescription() {
+    public String getDescription(){
         return beverage.getDescription() + "【豆浆】";
     }
 
     @Override
-    public double cost() {
-        return beverage.cost() + 3.6;
+    public Double cost() {
+        return new BigDecimal(beverage.cost().toString()).add(new BigDecimal(3.6)).doubleValue();
     }
 }

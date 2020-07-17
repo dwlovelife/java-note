@@ -1,18 +1,16 @@
 package structure.decorator;
 
-
-
-
+/**
+ * 综合咖啡
+ */
 public class HouseBlend extends Beverage {
-    public static void main(String[] args) {
 
-    }
     public HouseBlend() {
         description = "综合咖啡";
     }
 
     @Override
-    public double cost() {
+    public Double cost() {
         return 23.2;
     }
 }
