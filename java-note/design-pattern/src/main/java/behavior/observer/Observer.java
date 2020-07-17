@@ -6,6 +6,6 @@ package behavior.observer;
 public interface Observer {
 
     //反向更新
-    void update();
+    void update(WeatherDetail weatherDetail);
 
 }
