@@ -1,5 +1,7 @@
 package structure.decorator;
 
+import java.math.BigDecimal;
+
 /**
  *  奶泡
  */
@@ -15,7 +17,7 @@ public class Whip extends Condiment {
     }
 
     @Override
-    public double cost() {
-        return beverage.cost() + 2.7;
+    public Double cost() {
+        return new BigDecimal(beverage.cost().toString()).add(new BigDecimal(2.7)).doubleValue();
     }
 }

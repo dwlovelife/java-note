@@ -1,5 +1,7 @@
 package structure.decorator;
 
+import java.math.BigDecimal;
+
 /**
  * 摩卡
  */
@@ -16,7 +18,7 @@ public class Mocha extends Condiment {
     }
 
     @Override
-    public double cost() {
-        return beverage.cost() + 2.2;
+    public Double cost() {
+        return new BigDecimal(beverage.cost().toString()).add(new BigDecimal(2.2)).doubleValue();
     }
 }
