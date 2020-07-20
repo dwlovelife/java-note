@@ -21,3 +21,4 @@ public class Whip extends Condiment {
         return new BigDecimal(beverage.cost().toString()).add(new BigDecimal(2.7)).doubleValue();
     }
 }
+

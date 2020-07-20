@@ -11,17 +11,24 @@ public class BinaryTreeDemo {
          *  2      3
          *      5    4
          */
+        /**
+         *      1
+         *   3      6
+         * 8  10  14
+         */
         Node<Integer> root = new Node<>(1);
-        Node<Integer> node2 = new Node<>(2);
-        Node<Integer> node3 = new Node<>(3);
-        Node<Integer> node4 = new Node<>(4);
-        Node<Integer> node5 = new Node<>(5);
+        Node<Integer> node2 = new Node<>(3);
+        Node<Integer> node3 = new Node<>(6);
+        Node<Integer> node4 = new Node<>(8);
+        Node<Integer> node5 = new Node<>(10);
+        Node<Integer> node6 = new Node<>(14);
 
         //说明.先手动创建该二叉树,后面再采取用递归的方式创建二叉树
         root.left = node2;
         root.right = node3;
-        node3.left = node5;
-        node3.right = node4;
+        node2.left = node4;
+        node2.right = node5;
+        node3.left = node6;
         binaryTree.setRoot(root);
 //        System.out.println("下面开始二叉树遍历");
 //        System.out.println("---前序遍历---");
@@ -32,8 +39,8 @@ public class BinaryTreeDemo {
 //        binaryTree.postErgodic(); //后序遍历 2 5 4 3 1
 //        Node<Integer> node = binaryTree.infixSearch(5);
 ////        System.out.println(node);
-        binaryTree.delNode(2);
-        binaryTree.preErgodic();
+ //       binaryTree.delNode(2);
+        binaryTree.infixErgodic();
     }
 }
 

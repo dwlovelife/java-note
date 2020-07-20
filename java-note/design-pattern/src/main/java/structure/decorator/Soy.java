@@ -21,3 +21,4 @@ public class Soy extends Condiment {
         return new BigDecimal(beverage.cost().toString()).add(new BigDecimal(3.6)).doubleValue();
     }
 }
+
