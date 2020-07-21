@@ -19,7 +19,7 @@ public class ForecastConditionDisplay implements Observer, DisplayElement {
         if (forecastDetails != null) {
             for (WeatherDetail weatherDetail : forecastDetails) {
                 System.out.println("forecast-[temperature:" + weatherDetail.getTemperature()
-                        + ",humidity" + weatherDetail.getHumidity() + ",pressure" + weatherDetail.getPressure() + "]");
+                        + ",humidity:" + weatherDetail.getHumidity() + ",pressure:" + weatherDetail.getPressure() + "]");
             }
         }
     }

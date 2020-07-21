@@ -3,9 +3,12 @@ package behavior.observer;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
+
 /**
  * 天气数据
  */
+@Data
 public class WeatherData implements Subject {
 
     private List<Observer> observers;
