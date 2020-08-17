@@ -8,6 +8,7 @@
   	<module>design-pattern</module>
   	<module>algorithm</module>
   	<module>java-basic</module>
+  	<module>spring-sources</module>
   </modules>
 
   	<parent>

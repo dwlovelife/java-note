@@ -3,10 +3,7 @@ package concurrent;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import lombok.extern.slf4j.Slf4j;
 
-
-@Slf4j
 public class CountExample {
 	private static int threadTotal = 200;
 	private static int clientTotal = 5000;
@@ -27,10 +24,10 @@ public class CountExample {
 			});
 		}
 		exec.shutdown();
-		log.info("count:{}",count);
+		System.out.println("count:" + count);
 	}
-	
-	public static void add(){
+
+	public static void add() {
 		count++;
 	}
 
