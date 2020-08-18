@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.spring.bean.Car;
+import com.spring.bean.White;
 import com.spring.config.MainConfig;
 
 public class IOCTest {
@@ -15,6 +17,24 @@ public class IOCTest {
 		for (String beanName : beanDefinitionNames) {
 			System.out.println(beanName);
 		}
+	}
+	
+	@Test
+	public void test3(){
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+		Object white =  applicationContext.getBean("factoryBean");
+		Object factory =  applicationContext.getBean("&factoryBean");
+		System.out.println(factory.getClass());
+		System.out.println(white.getClass());
+	}
+	
+	@Test
+	public void test4(){
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+		System.out.println("容器创建");
+		Object car =  applicationContext.getBean(Car.class);
+		System.out.println(car.getClass());
+		applicationContext.close();
 	}
 
 	@Test
