@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
 
 import com.spring.bean.Color;
 import com.spring.bean.ColorFactoryBean;
