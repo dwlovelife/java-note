@@ -18,7 +18,7 @@ import com.spring.condition.LinuxCondition;
 import com.spring.condition.WindowsCondition;
 
 @Configuration
-@ComponentScan(value = "com.spring")
+@ComponentScan(value = "com.spring.controller") //默认会加载启动项根目录 所以这里的配置 没有很大的意义
 @Import({ Color.class, Red.class, MyImportSeletor.class, MyImportBeanDefintionRegister.class })
 public class MainConfig {
 

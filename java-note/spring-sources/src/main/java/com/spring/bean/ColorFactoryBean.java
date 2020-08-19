@@ -11,7 +11,6 @@ public class ColorFactoryBean implements FactoryBean<White> {
 
 	@Override
 	public Class<?> getObjectType() {
-		// TODO Auto-generated method stub
 		return White.class;
 	}
 
