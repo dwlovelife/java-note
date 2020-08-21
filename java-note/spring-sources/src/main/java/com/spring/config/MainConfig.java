@@ -1,12 +1,7 @@
 package com.spring.config;
 
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.*;
 
 import com.spring.bean.Color;
 import com.spring.bean.ColorFactoryBean;
@@ -17,7 +12,8 @@ import com.spring.condition.LinuxCondition;
 import com.spring.condition.WindowsCondition;
 
 @Configuration
-@ComponentScan(value = "com.spring.controller") //默认会加载启动项根目录 所以这里的配置 没有很大的意义
+@EnableAspectJAutoProxy
+@ComponentScan(value = "com.spring") //默认会加载启动项根目录 所以这里的配置 没有很大的意义@
 @Import({ Color.class, Red.class, MyImportSeletor.class, MyImportBeanDefintionRegister.class })
 public class MainConfig {
 

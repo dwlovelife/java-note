@@ -3,6 +3,9 @@ package com.springtest;
 import com.spring.bean.Car;
 import com.spring.bean.Person;
 import com.spring.config.MainConfig;
+import com.spring.service.IUserService;
+import com.spring.service.User;
+import com.spring.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -60,6 +63,17 @@ public class IOCTest {
         Object bean = applicationContext.getBean("person");
         Object bean2 = applicationContext.getBean("person");
         System.out.println(bean == bean2);
+    }
+
+    /**
+     * 测试APO切面
+     */
+    @Test
+    public void test6(){
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+        IUserService userService = applicationContext.getBean(IUserService.class);
+        User user = userService.createUser();
+        System.out.println(user);
     }
 
 }
