@@ -8,33 +8,34 @@ package leetcode.linkedlist;
  * 输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
  * 输出：7 -> 0 -> 8
  * 原因：342 + 465 = 807
+ * <p>
+ * 其实就是小学数学 先算个位再算十位再算百位以此类推 但是要防止一种情况就是 最后一位还有余数 得补链
  */
 public class LeetCode2 {
 
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode resultNode = new ListNode(0);
-        ListNode curResultNode = resultNode;
+        ListNode tempResultNode = resultNode;
         ListNode cur1 = l1, cur2 = l2;
         int add = 0;
         while (cur1 != null || cur2 != null) {
             int num1 = cur1 == null ? 0 : cur1.val;
             int num2 = cur2 == null ? 0 : cur2.val;
-
-            int sum = num1 + num2 + add;
-            add = sum / 10;
-            curResultNode.next = new ListNode(sum % 10);
-            curResultNode = curResultNode.next;
-            if (cur1 != null) {
+            int result = num1 + num2 + add;
+            add = result / 10;
+            tempResultNode.next = new ListNode(result % 10);
+            tempResultNode = tempResultNode.next;
+            if(cur1 != null){
                 cur1 = cur1.next;
             }
-            if (cur2 != null) {
+            if(cur2 != null){
                 cur2 = cur2.next;
             }
         }
 
-        if (add != 0) {
-            curResultNode.next = new ListNode(add);
+        if(add != 0){
+            tempResultNode.next = new ListNode(add % 10);
         }
 
         return resultNode.next;
