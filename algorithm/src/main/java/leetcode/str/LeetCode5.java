@@ -14,42 +14,78 @@ package leetcode.str;
  */
 public class LeetCode5 {
     public static void main(String[] args) {
-        String testStr = "ac";
-        String result = longestPalindrome(testStr);
+        String testStr = "aaaa";
+        String result = longestPalindrome2(testStr);
         System.out.println(result);
     }
 
+    /**
+     * 暴力破解
+     */
     private static String longestPalindrome(String s) {
-        if (s == null || s.length() <= 1) {
-            return s;
-        }
-        char[] chars = s.toCharArray();
-        int ans = 1;
-        int left = 0;
-        int right = 0;
-        for (int i = 0; i < chars.length; i++) {
-            for (int j = i + 1; j < chars.length; j++) {
-                if(j - i >= ans && verifyIsPalindrome(chars,i,j)){
-                    ans = j - i;
+        int n = s.length();
+        int left = 0, right = 0, ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (j - i > ans && verifyIsPalindrome(s, i, j)) {
                     left = i;
                     right = j;
+                    ans = j - i;
                 }
             }
         }
-        return s.substring(left,right + 1);
+        return s.substring(left, right + 1);
     }
 
-    private static boolean verifyIsPalindrome(char[] chars,int i,int j){
-        int left = i;
-        int right = j;
-        while(left < right){
-            if(chars[left] != chars[right]){
+    private static boolean verifyIsPalindrome(String s, int i, int j) {
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) {
                 return false;
             }
-            left++;
-            right--;
+            i++;
+            j--;
         }
         return true;
+    }
+
+    /**
+     * 动态规划
+     * 1 2 3 1
+     * 4 5 6 1
+     * 7 8 9 1
+     * 1 1 1 1
+     */
+    private static String longestPalindrome2(String s) {
+        int n = s.length();
+        if (n < 2) {
+            return s;
+        }
+        boolean[][] dp = new boolean[n][n];
+        int begin = 0, maxLength = 0;
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = true;
+        }
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (s.charAt(i) != s.charAt(j)) {
+                    dp[j][i] = false;
+                } else {
+                    //上述if已经过了 所以头尾一定相等
+                    if (i - j < 3) {
+                        dp[j][i] = true;
+                    } else {
+                        dp[j][i] = dp[j + 1][i - 1];
+                    }
+
+                    if (dp[j][i] && i - j > maxLength) {
+                        begin = j;
+                        maxLength = i - j;
+                    }
+
+                }
+            }
+        }
+        return s.substring(begin, begin + maxLength + 1);
     }
 
 

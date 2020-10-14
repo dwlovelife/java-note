@@ -28,4 +28,9 @@ package leetcode.arr;
  * 输出：2.00000
  */
 public class LeetCode4 {
+
+    /*public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+
+    }*/
+
 }
