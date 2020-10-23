@@ -13,7 +13,7 @@ import java.util.Arrays;
  */
 public class MyCode27 {
     public static void main(String[] args) {
-        int[] nums = {0, 1, 2, 2, 3, 0, 4, 2};
+        int[] nums = {2,3,2,3};
         int result = removeElement2(nums, 3);
         System.out.println(result);
         System.out.println(Arrays.toString(nums));
@@ -47,6 +47,24 @@ public class MyCode27 {
             }
         }
         return i;
+    }
+
+    /**
+     * 相当于前后找 val  后面找到换一次代表找到一次  剩下来的就是真正的长度
+     * 因为会不停把后面的值移到前面 所以用i去判断长度 就不准确了
+     */
+    public static int removeElement3(int[] nums, int val) {
+        int i = 0;
+        int n = nums.length;
+        while (i < n) {
+            if (nums[i] == val) {
+                nums[i] = nums[n - 1];
+                n--;
+            } else {
+                i++;
+            }
+        }
+        return n;
     }
 
 }
