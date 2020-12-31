@@ -1,5 +1,6 @@
 package leetcode.level.easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,8 @@ public class MyCode1 {
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
-
+        int[] result = twoSum(nums, target);
+        System.out.println(Arrays.toString(result));
     }
 
     /**
@@ -21,12 +23,13 @@ public class MyCode1 {
      * 因为 nums[0] + nums[1] = 2 + 7 = 9
      * 所以返回 [0, 1]
      */
-    public int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> container = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            Integer index = container.get(target - nums[i]);
-            if (index != null) {
-                return new int[]{i, index};
+            int result = target - nums[i];
+            Integer index = container.get(result);
+            if(index != null){
+                return new int[]{index, i};
             }
             container.put(nums[i], i);
         }
