@@ -35,15 +35,18 @@ public class MyCode509 {
         if (n < 0) {
             return 0;
         }
-        int[] store = new int[n + 1];
+        int[] store = new int[n];
         return add(store, n);
     }
 
     public static int add(int[] store, int n) {
-        if (n == 0 || n == 1) return n;
-        if (store[n] != 0) return store[n];
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        if(store[n] != 0) return store[n];
         store[n] = add(store, n - 1) + add(store, n - 2);
         return store[n];
     }
+
 
 }
