@@ -19,6 +19,9 @@ public class ArrTest03 {
         System.out.println(Arrays.toString(arr));
     }
 
+    /**
+     * 类似环形队列取余的技巧
+     */
     public static void rotate(int[] nums, int k) {
         int length = nums.length;
         int rotateNum = length - (k % length);

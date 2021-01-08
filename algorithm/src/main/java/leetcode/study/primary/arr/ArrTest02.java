@@ -35,6 +35,9 @@ public class ArrTest02 {
         System.out.println(profit);
     }
 
+    /**
+     * 动态规划和贪心算法
+     */
     public static int maxProfit(int[] prices) {
         int n = prices.length;
         int[][] dp = new int[n][2];

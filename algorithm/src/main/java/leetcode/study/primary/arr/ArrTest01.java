@@ -30,6 +30,9 @@ public class ArrTest01 {
         System.out.println(Arrays.toString(nums));
     }
 
+    /**
+     * 考点：快慢指针
+     */
     public static int removeDuplicates(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
