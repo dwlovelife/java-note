@@ -35,4 +35,20 @@ public class TempTest03 {
         }
         return true;
     }
+
+    public static boolean isPalindrome2(String s) {
+        int n = s.length();
+        if (n == 0) {
+            return true;
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0; i < s.length(); i++){
+            char c = s.charAt(i);
+            if(Character.isLetterOrDigit(c)){
+                stringBuilder.append(Character.toLowerCase(c));
+            }
+        }
+        return stringBuilder.toString().equals(stringBuilder.reverse().toString());
+    }
+
 }
