@@ -1,7 +1,8 @@
-package leetcode.study.primary;
+package leetcode.study.primary.str;
 
 
-public class TempTest03 {
+public class StrTest05 {
+
     public static void main(String[] args) {
         String s = "A man, a plan, a canal: Panama";
         boolean flag = isPalindrome(s);

@@ -1,8 +1,7 @@
-package leetcode.study.primary;
+package leetcode.study.primary.str;
 
 
-
-public class TempTest04 {
+public class StrTest06 {
     public static void main(String[] args) {
         String s = "   -42";
         int result = myAtoi(s);
