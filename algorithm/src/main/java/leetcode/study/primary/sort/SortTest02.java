@@ -13,10 +13,10 @@ public class SortTest02 {
     public int firstBadVersion(int n) {
         int left = 0;
         int right = n;
-        while(left < right){
-            int medium = (left + right) / 2;
+        while(left <= right){
+            int medium = left + (right - left) / 2;
             if(isBadVersion(medium)){
-                right = medium;
+                right = medium - 1;
             }else{
                 left = medium + 1;
             }
