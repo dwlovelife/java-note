@@ -12,53 +12,45 @@ import java.util.concurrent.*;
  * 这里打算采用Callable和Future来实现
  */
 public class CreateThreadTest02 {
-    private static final ExecutorService pool = Executors.newFixedThreadPool(4);
+    private static final ExecutorService executorService = Executors.newFixedThreadPool(4);
 
     public static void main(String[] args) {
-        //定义任务list，创建任务并加入list
-        List<Callable<Map<String,Object>>> taskList = new ArrayList<>();
-        taskList.add(new Task("url1"));
-        taskList.add(new Task("url2"));
-        taskList.add(new Task("url3"));
-        taskList.add(new Task("url4"));
-
-        //定义返回结果list，通过future获取返回值
-        List<Future<Map<String,Object>>> resultList = new ArrayList<>();
-
-        for (final Callable<Map<String,Object>> task:taskList){
-            Future<Map<String,Object>> future = pool.submit(task);
-            resultList.add(future);
+        List<Task> tasks = new ArrayList<>();
+        tasks.add(new Task("url1"));
+        tasks.add(new Task("url2"));
+        tasks.add(new Task("url3"));
+        tasks.add(new Task("url4"));
+        List<Future<Map<String, Object>>> futures = new ArrayList<>();
+        for (final Callable<Map<String, Object>> task : tasks) {
+            futures.add(executorService.submit(task));
         }
 
-        for (final Future<Map<String,Object>> future:resultList){
+        for (Future<Map<String, Object>> future : futures) {
             try {
-                System.out.println(future.get(3,TimeUnit.SECONDS).get("url"));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (TimeoutException e) {
+                System.out.println(future.get(3, TimeUnit.SECONDS).get("url"));
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
     }
+
 }
+
 //线程执行任务类
-class Task implements Callable<Map<String,Object>>{
+class Task implements Callable<Map<String, Object>> {
 
-    private String url;
+    String url;
 
-    public Task (String url){
+    public Task(String url) {
         this.url = url;
     }
 
     @Override
     public Map<String, Object> call() throws Exception {
-        Map<String,Object> result = new HashMap<>();
-        result.put("url", this.url);
-        result.put("result", "OK");
-        System.out.println("task running: " + this.url);
-        return result;
+        Map<String, Object> map = new HashMap<>();
+        map.put("url", url); //假设这个部分
+        map.put("result", "OK");
+        return map;
     }
+
 }
