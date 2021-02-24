@@ -17,7 +17,7 @@ public class ArrBinaryTreeDemo {
          */
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
         ArrBinaryTree arrBinaryTree = new ArrBinaryTree(arr);
-        arrBinaryTree.infixErgodic(0);
+        arrBinaryTree.preErgodic(0);
     }
 }
 
@@ -64,7 +64,7 @@ class ArrBinaryTree {
         System.out.println(arr[index]);
     }
 
-    private void checkArrIsIllegal(int[] arr){
+    private void checkArrIsIllegal(int[] arr) {
         if (arr == null || arr.length == 0) {
             System.out.println("数组为空,不能按照二叉树的前序遍历");
         }
