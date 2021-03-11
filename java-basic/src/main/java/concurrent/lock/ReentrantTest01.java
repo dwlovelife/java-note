@@ -7,6 +7,8 @@ public class ReentrantTest01 {
     final static Object o = new Object();
 
     public static void main(String[] args) {
+        Boolean a = true;
+        ClassLayout.parseInstance(a).toPrintable();
         System.out.println("--------第一次获取锁之前--------");
         System.out.println( ClassLayout.parseInstance(o).toPrintable() );
         synchronized (o){

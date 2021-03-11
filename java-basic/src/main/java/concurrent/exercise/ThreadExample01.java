@@ -3,6 +3,9 @@ package concurrent.exercise;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 四个线程分别 对线程进行加1 减1操作 1 0 1 0 1 0
+ */
 public class ThreadExample01 {
     public static void main(String[] args) {
         final ShareData data = new ShareData();

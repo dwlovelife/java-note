@@ -1,6 +1,8 @@
 package leetcode.level.medium;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
@@ -28,11 +30,11 @@ import java.util.HashMap;
 public class MyCode3 {
     public static void main(String[] args) {
         String s = "abcabcbb";
-        int result = lengthOfLongestSubstring(s);
+        int result = lengthOfLongestSubstring2(s);
         System.out.println(result);
     }
 
-    public static int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring1(String s) {
         if (s == null || s.length() == 0) {
             return 0;
         }
@@ -42,6 +44,7 @@ public class MyCode3 {
         for (int i = 0; i < s.length(); i++) {
             Integer index = map.get(s.charAt(i));
             if (index != null) {
+                //abba  遍历第四个a的时候 此时left已经是3了 不应该比3小
                 left = Math.max(left, index + 1);
             }
             map.put(s.charAt(i), i);
@@ -49,5 +52,23 @@ public class MyCode3 {
         }
         return max;
     }
+
+    public static int lengthOfLongestSubstring2(String s) {
+        Set<Character> set = new HashSet<>();
+        int rk = 0;
+        int maxSubArray = 0;
+        for(int i = 0; i < s.length(); i++){
+            if(i > 0){
+                set.remove(s.charAt( i - 1));
+            }
+            while(rk < s.length() && !set.contains(s.charAt(rk))){
+                set.add(s.charAt(rk));
+                rk++;
+                maxSubArray = Math.max(maxSubArray, rk - i);
+            }
+        }
+        return maxSubArray;
+    }
+
 
 }
