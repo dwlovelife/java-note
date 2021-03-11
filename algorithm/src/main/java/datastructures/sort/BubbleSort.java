@@ -10,11 +10,11 @@ import java.util.Arrays;
 public class BubbleSort {
 	public static void main(String[] args) {
 		int[] elements = {-2,-1,3,9,-9,7,-6};
-		bubbileSort(elements);
+		bubbleSort(elements);
 		System.out.println(Arrays.toString(elements));
 	}
 
-	public static void bubbileSort(int[] elements) {
+	public static void bubbleSort(int[] elements) {
 		// 总共要排序n - 1次
 		//如果在冒泡排序在某一次交换过程中,没有进行任何交换,说明已经是有序的了
 		boolean flag = false;
