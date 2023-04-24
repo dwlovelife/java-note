@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort {
 	public static void main(String[] args) {
-		int[] elements = { 6, 1, 2, 7, 9, 10, 4, 5, 10, 8 };
+		int[] elements = { 1, 12, 2, 7, 9, 10, 4, 5, 10, 8 };
 		quickSort(elements, 0, elements.length - 1);
 		System.out.println(Arrays.toString(elements));
 	}
@@ -31,16 +31,13 @@ public class QuickSort {
 			while (l < r && arr[l] <= base) {
 				l++;
 			}
-			if (r > l) {
+			if (l < r) {
 				swap(arr, l, r);
 			}
 		}
-		// 当左右两边指针重合时,将基准数与指针指向数字交换
 		swap(arr, l, left);
-		// 将指针左边递归
-		quickSort(arr, left, l - 1);
-		// 右边同理
 		quickSort(arr, r + 1, right);
+		quickSort(arr, left, l - 1);
 	}
 
 	// swap方法
