@@ -1,4 +1,4 @@
-package leetcode.sword.helper;
+package leetcode.sword;
 
 /**
  * @description: TODO

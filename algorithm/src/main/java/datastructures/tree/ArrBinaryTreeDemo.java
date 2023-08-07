@@ -13,7 +13,7 @@ public class ArrBinaryTreeDemo {
         /**
          *       1
          *    2      3
-         * 4    5  6    7
+         *  4    5  6    7
          */
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
         ArrBinaryTree arrBinaryTree = new ArrBinaryTree(arr);

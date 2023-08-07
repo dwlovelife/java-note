@@ -1,6 +1,4 @@
-package leetcode.sword.helper;
-
-import lombok.Data;
+package leetcode.sword;
 
 /**
  * @description: 链表节点工具类
