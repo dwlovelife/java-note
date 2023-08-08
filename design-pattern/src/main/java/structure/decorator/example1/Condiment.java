@@ -1,4 +1,4 @@
-package structure.decorator;
+package structure.decorator.example1;
 
 /**
  * 调料抽象类

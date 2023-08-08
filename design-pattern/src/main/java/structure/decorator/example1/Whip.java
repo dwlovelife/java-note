@@ -1,4 +1,4 @@
-package structure.decorator;
+package structure.decorator.example1;
 
 import java.math.BigDecimal;
 

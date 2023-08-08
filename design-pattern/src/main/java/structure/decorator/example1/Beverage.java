@@ -1,4 +1,4 @@
-package structure.decorator;
+package structure.decorator.example1;
 
 /**
  * 创建一个饮料抽象类

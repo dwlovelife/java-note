@@ -1,5 +1,5 @@
 
-package structure.decorator;
+package structure.decorator.example1;
 
 /**
  * 综合咖啡

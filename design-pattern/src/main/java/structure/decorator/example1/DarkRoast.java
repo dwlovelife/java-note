@@ -1,4 +1,4 @@
-package structure.decorator;
+package structure.decorator.example1;
 
 
 public class DarkRoast extends Beverage {
