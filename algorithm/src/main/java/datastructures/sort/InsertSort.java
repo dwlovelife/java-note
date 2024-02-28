@@ -27,17 +27,13 @@ public class InsertSort {
 	public static void insertSort(int[] elements) {
 		// 由于是插入排序我们先把elements[0] 给单独拎出来 当成一个有序子序列
 		for (int i = 1; i < elements.length; i++) {
-			// 如果待插入的数比前一个数(目前排列最大的数)小 才启动插入操作
 			if (elements[i - 1] > elements[i]) {
-				// 定义一个临时变量用来存储 待插入的数字
-				int temp = elements[i];
-				// 从后向前遍历插入
+				int insertElement = elements[i];
 				for (int j = i; j >= 0; j--) {
-					// 如果前一个数比当前的位置大则把 前一个数往后移 因为我们已经暂存了待插入的数字
-					if (j > 0 && elements[j - 1] > temp) {
+					if (j > 0 && elements[j - 1] > insertElement) {
 						elements[j] = elements[j - 1];
 					} else {
-						elements[j] = temp;
+						elements[j] = insertElement;
 						break;
 					}
 				}

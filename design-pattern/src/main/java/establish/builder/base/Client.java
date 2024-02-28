@@ -1,5 +1,8 @@
 package establish.builder.base;
 
+/**
+ * 建造者模式链式调用
+ */
 public class Client {
     public static void main(String[] args) {
         Computer computer=new Computer.Builder("因特尔","三星")
