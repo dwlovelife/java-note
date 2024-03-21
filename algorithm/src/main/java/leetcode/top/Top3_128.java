@@ -8,7 +8,7 @@ import java.util.Set;
  * @author: dingwei17@jd.com
  * @date : 2024/3/5 12:21
  */
-public class Top128 {
+public class Top3_128 {
 
     public int longestConsecutive(int[] nums) {
         Set<Integer> set = new HashSet<>();
