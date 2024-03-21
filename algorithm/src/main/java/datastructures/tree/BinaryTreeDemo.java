@@ -40,7 +40,7 @@ public class BinaryTreeDemo {
 //        Node<Integer> node = binaryTree.infixSearch(5);
 ////        System.out.println(node);
  //       binaryTree.delNode(2);
-        binaryTree.infixErgodic();
+        binaryTree.postErgodic();
     }
 }
 
