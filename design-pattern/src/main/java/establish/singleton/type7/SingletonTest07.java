@@ -11,3 +11,4 @@ public class SingletonTest07 {
 enum Singleton{
 	INSTANCE;
 }
+

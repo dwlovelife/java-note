@@ -19,6 +19,6 @@ public class ThreadPoolTest01 {
         executor.setThreadNamePrefix("service-thread-");
         executor.initialize();
 
-        ThreadLocal
+
     }
 }
