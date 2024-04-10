@@ -18,7 +18,7 @@ public class BubbleSort {
 		// 总共要排序n - 1次
 		//如果在冒泡排序在某一次交换过程中,没有进行任何交换,说明已经是有序的了
 		boolean flag;
-		for (int i = 0; i < elements.length - 1; i++) {
+		for (int i = 0; i < elements.length; i++) {
 			flag = false;
 			for (int j = 0; j < elements.length - 1 - i; j++) {
 				if (elements[j] > elements[j + 1]) {

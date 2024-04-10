@@ -25,19 +25,8 @@ public class QuickSort {
         int l = left;
         int r = right;
         while (l < r) {
-            while (l < r && arr[r] >= base) {
-                r--;
-            }
-            while (l < r && arr[l] <= base) {
-                l++;
-            }
-            if (l < r) {
-                swap(arr, l, r);
-            }
+
         }
-        swap(arr, left, l);
-        quickSort(arr, r + 1, right);
-        quickSort(arr, left, l - 1);
     }
 
     // swap方法
